@@ -1,0 +1,56 @@
+{
+  "name": "strip-json-comments-cli",
+  "version": "0.0.0",
+  "description": "Strip comments from JSON. Lets you use comments in your JSON files!",
+  "license": "MIT",
+  "repository": "sindresorhus/strip-json-comments-cli",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "bin": {
+    "strip-json-comments": "cli.js"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "cli.js"
+  ],
+  "keywords": [
+    "cli-app",
+    "cli",
+    "json",
+    "strip",
+    "remove",
+    "delete",
+    "trim",
+    "comments",
+    "multiline",
+    "parse",
+    "config",
+    "configuration",
+    "conf",
+    "settings",
+    "util",
+    "env",
+    "environment"
+  ],
+  "dependencies": {
+    "get-stdin": "^5.0.1",
+    "meow": "^3.5.0",
+    "strip-json-comments": "^2.0.0"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "pify": "^2.3.0",
+    "xo": "*"
+  },
+  "xo": {
+    "esnext": true
+  }
+}
