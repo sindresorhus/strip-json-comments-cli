@@ -26,10 +26,8 @@ function init(data) {
 const input = cli.input[0];
 
 if (!input && process.stdin.isTTY) {
-	if (!cli.input[0]) {
-		console.error('Filepath required');
-		process.exit(1);
-	}
+	console.error('Filepath required');
+	process.exit(1);
 }
 
 if (input) {
