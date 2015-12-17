@@ -13,7 +13,7 @@ $ npm install --global strip-json-comments-cli
 ## Usage
 
 ```
-$ strip-json-comments-cli --help
+$ strip-json-comments --help
 
   Usage
     $ strip-json-comments <input-file> > <output-file>
