@@ -1,4 +1,4 @@
-# strip-json-comments-cli [![Build Status](https://travis-ci.org/sindresorhus/strip-json-comments-cli.svg?branch=master)](https://travis-ci.org/sindresorhus/strip-json-comments-cli)
+# strip-json-comments-cli
 
 > Strip comments from JSON. Lets you use comments in your JSON files!
 
