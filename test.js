@@ -1,13 +1,12 @@
-import childProcess from 'child_process';
 import test from 'ava';
-import pify from 'pify';
+import execa from 'execa';
 
 test('main', async t => {
-	const stdout = await pify(childProcess.execFile)('./cli.js', ['fixture.json']);
+	const {stdout} = await execa('./cli.js', ['fixture.json']);
 	t.deepEqual(JSON.parse(stdout), {unicorn: 'cake'});
 });
 
 test('stdin', async t => {
-	const stdout = await pify(childProcess.exec)('echo \'{/*rainbows*/"unicorn":"cake"}\' | ./cli.js');
+	const {stdout} = await execa('./cli.js', {input: '{/*rainbows*/"unicorn":"cake"}'});
 	t.deepEqual(JSON.parse(stdout), {unicorn: 'cake'});
 });

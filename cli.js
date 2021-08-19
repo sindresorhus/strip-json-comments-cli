@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-'use strict';
-const fs = require('fs');
-const getStdin = require('get-stdin');
-const meow = require('meow');
-const fn = require('strip-json-comments');
+import process from 'node:process';
+import fs from 'node:fs';
+import getStdin from 'get-stdin';
+import meow from 'meow';
+import stripJsonComments from 'strip-json-comments';
 
 const cli = meow(`
 	Usage
@@ -16,22 +16,24 @@ const cli = meow(`
 	Example
 	  $ strip-json-comments input.json > output.json
 `, {
-	string: ['_']
+	importMeta: import.meta,
 });
 
 function init(data) {
-	console.log(fn(data, cli.flags));
+	console.log(stripJsonComments(data, cli.flags));
 }
 
 const input = cli.input[0];
 
 if (!input && process.stdin.isTTY) {
-	console.error('Filepath required');
+	console.error('Specify a file path');
 	process.exit(1);
 }
 
 if (input) {
 	init(fs.readFileSync(input, 'utf8'));
 } else {
-	getStdin().then(init);
+	(async () => {
+		init(await getStdin());
+	})();
 }
