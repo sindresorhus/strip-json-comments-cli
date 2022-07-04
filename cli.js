@@ -17,6 +17,13 @@ const cli = meow(`
 	  $ strip-json-comments input.json > output.json
 `, {
 	importMeta: import.meta,
+	flags: {
+		whitespace: {
+			name: 'whitespace',
+			type: 'boolean',
+			default: true,
+		}
+	}
 });
 
 function init(data) {
