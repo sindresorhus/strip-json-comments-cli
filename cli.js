@@ -25,10 +25,6 @@ const cli = meow(`
 	},
 });
 
-function init(data) {
-	console.log(stripJsonComments(data, cli.flags));
-}
-
 const input = cli.input[0];
 
 if (!input && process.stdin.isTTY) {
@@ -36,10 +32,5 @@ if (!input && process.stdin.isTTY) {
 	process.exit(1);
 }
 
-if (input) {
-	init(fs.readFileSync(input, 'utf8'));
-} else {
-	(async () => {
-		init(await getStdin());
-	})();
-}
+const data = input ? fs.readFileSync(input, 'utf8') : await getStdin();
+console.log(stripJsonComments(data, cli.flags));

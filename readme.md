@@ -4,8 +4,8 @@
 
 ## Install
 
-```
-$ npm install --global strip-json-comments-cli
+```sh
+npm install --global strip-json-comments-cli
 ```
 
 ## Usage
