@@ -2,6 +2,8 @@
 
 > Strip comments from JSON. Lets you use comments in your JSON files!
 
+It also strips trailing commas.
+
 ## Install
 
 ```sh

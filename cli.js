@@ -33,4 +33,4 @@ if (!input && process.stdin.isTTY) {
 }
 
 const data = input ? fs.readFileSync(input, 'utf8') : await getStdin();
-console.log(stripJsonComments(data, cli.flags));
+console.log(stripJsonComments(data, {...cli.flags, trailingCommas: true}));
